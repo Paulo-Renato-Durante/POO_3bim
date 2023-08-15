@@ -5,7 +5,7 @@ class App {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         ControlerString control = new ControlerString();
-        Controle controleDados = new Controle();
+       
 
         while(true){
 
@@ -15,6 +15,7 @@ class App {
 
             if(control.verificaNumeroInteiro1(num)){
                 
+                 Controle controleDados = new Controle(num);
             }
 
         }

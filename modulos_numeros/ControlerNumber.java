@@ -1,6 +1,6 @@
 package modulos_numeros;
 
-class ControlerNumber{
+public class ControlerNumber{
     private String numeroString;
     private int numero;
     private Centena centena;
@@ -8,9 +8,9 @@ class ControlerNumber{
     private Unidade unidade;
     private Dezenas dezena;
 
-    
-    ControlerNumber(int num){
+    public ControlerNumber(int num){
         setNumero(num);
+
     }
     public void setNumero(int numero) {
         this.numero = numero;
@@ -24,10 +24,9 @@ class ControlerNumber{
     public String getNumeroString() {
         return numeroString;
     }
-    private void testarCasaDecimal(){
+    public void testarCasaDecimal(){
         if(getNumero()/1000 >=1){
             milhar = new Milhar(getNumero());
-
         }else{
             centena= new Centena(getNumero());
         }
