@@ -1,23 +1,32 @@
 import modulos_numeros.ControlerNumber;
 public class Controle {
     private ControlerNumber controleNumber;
-    private int numero;
+    private int Numero;
+    private String NumeroExtenso;
 
     Controle(String numeroString){
         setNumero(tranformarInt(numeroString));
         this.controleNumber = new ControlerNumber(getNumero());
     }
     public void setNumero(int numero) {
-        this.numero = numero;
+        this.Numero = numero;
     }
     public int getNumero() {
-        return numero;
+        return this.Numero;
     }
     private int tranformarInt(String s){
         return Integer.parseInt(s);
     }
+    public void setNumeroExtenso(String numeroExtenso) {
+        this.NumeroExtenso = numeroExtenso;
+    }
+    public String getNumeroExtenso() {
+        return this.NumeroExtenso;
+    }
     public void printNumeroExtenso(){
-        this.controleNumber.testarCasaDecimal();
+        String s = this.controleNumber.gerarNumeroExtenso();
+        setNumeroExtenso(s);
+        System.out.println(getNumeroExtenso());
     }
 
 }

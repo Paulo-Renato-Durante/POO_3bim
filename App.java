@@ -11,11 +11,10 @@ class App {
 
             System.out.println("Digite o numero que deseja escrever por extenso:");
             String num = scan.nextLine();
-
-
             if(control.verificaNumeroInteiro1(num)){
                 
                  Controle controleDados = new Controle(num);
+                 controleDados.printNumeroExtenso();
             }
 
         }

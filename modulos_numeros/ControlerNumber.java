@@ -5,13 +5,13 @@ public class ControlerNumber{
     private int numero;
     private Centena centena;
     private Milhar milhar;
-    private Unidade unidade;
-    private Dezenas dezena;
 
     public ControlerNumber(int num){
         setNumero(num);
 
     }
+    
+    
     public void setNumero(int numero) {
         this.numero = numero;
     }
@@ -24,11 +24,24 @@ public class ControlerNumber{
     public String getNumeroString() {
         return numeroString;
     }
-    public void testarCasaDecimal(){
+    public boolean testarCasaDecimal(){
         if(getNumero()/1000 >=1){
-            milhar = new Milhar(getNumero());
-        }else{
-            centena= new Centena(getNumero());
+           return true;
         }
+        return false;
+    }
+   
+   
+   
+    public String gerarNumeroExtenso(){
+        if(testarCasaDecimal()){
+            milhar = new Milhar(getNumero());
+            return"";
+        }else{
+            centena = new Centena(getNumero());
+            return centena.makeExtensiveHundred();
+        }
+
+       
     }
 }
