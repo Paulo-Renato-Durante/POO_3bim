@@ -1,18 +1,17 @@
-package modulos_numeros;
+
 
 public class Unidade {
     private int unidade;
     private String unidadeString;
     private String[] arrayNumerosExtensos  = {"zero","um","dois","tres","quatro","cinco","seis","sete","oito","nove"};
     
+
     Unidade(int num){
         setUnidade(num%10);
     }
-
     public String makeExtensiveUnit(){
         for(int i = 0;i<=9;i++){
             if(getUnidade()==i){
-                System.out.println(arrayNumerosExtensos[i]);
                 return arrayNumerosExtensos[i];
             }
         }

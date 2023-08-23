@@ -1,6 +1,4 @@
-package modulos_numeros;
-
-public class Dezenas extends Unidade {
+public class Dezena extends Unidade {
     private int Dezena;
     private String[] Dezenas = {
         "", "", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"
@@ -10,7 +8,7 @@ public class Dezenas extends Unidade {
         "dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove"
     };
 
-    Dezenas(int num){
+    Dezena(int num){
         super(num);
         setDezena((num / 10) % 10);
     }
@@ -35,10 +33,10 @@ public class Dezenas extends Unidade {
         return false;
     }
     public String makeExtensiveTen(String s){
-        System.out.println("teste");
         if(testNormalTen()){
             s += getTenExtensive(getDezena());
         }
+        s+= makeExtensiveUnit();
         return s;
     }
 }

@@ -1,6 +1,4 @@
-package modulos_numeros;
-
-public class Centena extends Dezenas{
+public class Centena extends Dezena{
 
     private String[] Centenas = {
         "", "Cento", "Duzentos", "Trezentos", "Quatrocentos", "Quinhentos", "Seiscentos", "Setecentos", "Oitocentos", "Novecentos"
@@ -12,8 +10,8 @@ public class Centena extends Dezenas{
         super(num);
         setCentena((num / 100) % 10);
     }
-    public void setCentena(int centena) {
-        this.centena = centena;
+    public void setCentena(int num) {
+        this.centena = ((num / 100) % 10);
     }
     public int getCentena() {
         return this.centena;
@@ -28,7 +26,6 @@ public class Centena extends Dezenas{
     }
     public String makeExtensiveHundred(){
         String s = getCentExtensive(getCentena());
-        System.out.println("teste");
         s += makeExtensiveTen(s);
         
 

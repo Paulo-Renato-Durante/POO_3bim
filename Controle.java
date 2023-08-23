@@ -1,12 +1,12 @@
-import modulos_numeros.ControlerNumber;
+
 public class Controle {
-    private ControlerNumber controleNumber;
+    private String NumeroString;
     private int Numero;
+    private Milhar Milhar;
     private String NumeroExtenso;
 
     Controle(String numeroString){
         setNumero(tranformarInt(numeroString));
-        this.controleNumber = new ControlerNumber(getNumero());
     }
     public void setNumero(int numero) {
         this.Numero = numero;
@@ -24,7 +24,8 @@ public class Controle {
         return this.NumeroExtenso;
     }
     public void printNumeroExtenso(){
-        String s = this.controleNumber.gerarNumeroExtenso();
+        this.Milhar = new Milhar(getNumero());
+        String s = this.Milhar.makeExtensiveHundred();
         setNumeroExtenso(s);
         System.out.println(getNumeroExtenso());
     }
