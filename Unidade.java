@@ -1,21 +1,32 @@
 
 
 public class Unidade {
+    private int num;
     private int unidade;
-    private String unidadeString;
-    private String[] arrayNumerosExtensos  = {"zero","um","dois","tres","quatro","cinco","seis","sete","oito","nove"};
-    
+    public String[] arrayNumerosExtensos  = {"","um","dois","tres","quatro","cinco","seis","sete","oito","nove"};
+
 
     Unidade(int num){
+        setNum(num);
         setUnidade(num%10);
     }
     public String makeExtensiveUnit(){
-        for(int i = 0;i<=9;i++){
-            if(getUnidade()==i){
-                return arrayNumerosExtensos[i];
+        String s ="";
+        if(getNum()!=0){
+            s = (arrayNumerosExtensos[getUnidade()]);
+            if(getUnidade()==0 ||getNum()/10<=0 ){
+                return s;
             }
+            return concatEIntoString(s);
         }
-        return"";
+        return "zero";
+        
+    }
+    public void setNum(int num) {
+        this.num = num;
+    }
+    public int getNum() {
+        return num;
     }
     public void setUnidade(int unidade) {
         this.unidade = unidade;
@@ -23,10 +34,8 @@ public class Unidade {
     public int getUnidade() {
         return unidade;
     }
-    public void setUnidadeString(String unidadeString) {
-        this.unidadeString = unidadeString;
-    }
-    public String getUnidadeString() {
-        return unidadeString;
+
+    public String concatEIntoString(String s){
+        return " e "+ s;
     }
 }

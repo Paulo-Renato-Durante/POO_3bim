@@ -1,7 +1,7 @@
 public class Centena extends Dezena{
 
     private String[] Centenas = {
-        "", "Cento", "Duzentos", "Trezentos", "Quatrocentos", "Quinhentos", "Seiscentos", "Setecentos", "Oitocentos", "Novecentos"
+        "", "cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos"
     };
     private int centena;
 
@@ -11,24 +11,35 @@ public class Centena extends Dezena{
         setCentena((num / 100) % 10);
     }
     public void setCentena(int num) {
-        this.centena = ((num / 100) % 10);
+        this.centena = num;
     }
     public int getCentena() {
         return this.centena;
     }
-    private String getCentExtensive(int n){
-        for(int i = 0;i<=9;i++){
-            if(i==n){
-                return this.Centenas[i];
-            }
+    private String getCentExtensive(){
+
+        return this.Centenas[getCentena()];
+    }
+    private String testConcatOrNo(String s){
+        if(getNum()/1000 <= 0 ){
+            return s;
         }
-        return"";
+        return concatEIntoString(s);
+    }
+    private boolean testIfEndWhithzeros(){
+        if(getUnidade() == 0&& getDezena()==0){
+            return true;
+        }
+        return false;
     }
     public String makeExtensiveHundred(){
-        String s = getCentExtensive(getCentena());
-        s += makeExtensiveTen(s);
+        String s = "";
+        s += getCentExtensive();
         
-
-        return s;
+        if(testIfEndWhithzeros()){
+            return testConcatOrNo(s);
+        }
+        s += makeExtensiveTen();
+        return " "+s;
     }
 }

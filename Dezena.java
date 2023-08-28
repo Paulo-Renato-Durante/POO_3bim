@@ -4,7 +4,7 @@ public class Dezena extends Unidade {
         "", "", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"
     };
 
-    private String[] diferentes = {
+    private String[] Diferentes = {
         "dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove"
     };
 
@@ -18,25 +18,37 @@ public class Dezena extends Unidade {
     public int getDezena() {
         return this.Dezena;
     }
-    private String getTenExtensive(int n){
-        for(int i = 0;i<=9;i++){
-            if(i==n){
-                return this.Dezenas[i];
-            }
-        }
-        return"";
+    private String getTenExtensive(){
+        return this.Dezenas[getDezena()];
     }
     private boolean testNormalTen(){
-        if(getDezena()>1){
+        if(getDezena()>1|| getDezena() == 0){
             return true;
         }
         return false;
     }
-    public String makeExtensiveTen(String s){
-        if(testNormalTen()){
-            s += getTenExtensive(getDezena());
+    private String testConcatOrNo(String s){
+        if(getNum()/100 <= 0 ){
+            return s;
         }
-        s+= makeExtensiveUnit();
-        return s;
+        return concatEIntoString(s);
+    }
+    private String getDiferentTenExtensive(){
+        if(getDezena() ==0){
+            return "";
+        }
+        return Diferentes[getUnidade()];
+    }
+    public String makeExtensiveTen(){
+        String s = "";
+        if(testNormalTen()){
+            s += getTenExtensive();
+            s += makeExtensiveUnit();
+            return testConcatOrNo(s);
+        }
+        s += getDiferentTenExtensive();
+        return testConcatOrNo(s) ;
+
+
     }
 }

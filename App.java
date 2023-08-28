@@ -8,7 +8,8 @@ class App {
             String num = scan.nextLine();
             Controle controleDados = new Controle(num);
             controleDados.printNumeroExtenso();
-            
+            ControleCaracteres controleCaracteres = new ControleCaracteres(controleDados.getNumeroExtenso());
+            System.out.println(controleCaracteres.getUpperFirstLetter());
 
         }
     }

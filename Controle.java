@@ -1,6 +1,5 @@
 
 public class Controle {
-    private String NumeroString;
     private int Numero;
     private Milhar Milhar;
     private String NumeroExtenso;
@@ -25,9 +24,8 @@ public class Controle {
     }
     public void printNumeroExtenso(){
         this.Milhar = new Milhar(getNumero());
-        String s = this.Milhar.makeExtensiveHundred();
+        String s = this.Milhar.makeExtensivethousand();
         setNumeroExtenso(s);
-        System.out.println(getNumeroExtenso());
     }
 
 }
